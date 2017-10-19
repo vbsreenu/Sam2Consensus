@@ -19,4 +19,4 @@ gcc sam2consensus.c -o SAM2CONSENSUS -lm
 * Use the program at your own risk
 
 ## Contact
-Please send your comments, suggestions and bugs to Dr. Sreenu Vattipally (sreenu.vattipally@glasgow.ac.uk)
+Please send your comments, suggestions and bugs to [Dr. Sreenu Vattipally](http://bioinformatics.cvr.ac.uk/sreenu.php)  (sreenu.vattipally@glasgow.ac.uk)
