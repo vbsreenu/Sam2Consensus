@@ -110,7 +110,7 @@ char GetConsensus(int A, int T, int G, int C, int Aq, int Tq, int Gq, int Cq, in
 	}
 	return consensus;
 }
-void GetConsensusDetailed(int A,int T,int G,int C,int N,int Aq,int Tq,int Gq,int Cq,int depth,char *consensus,int *coverage,float *af,float *tf,float *gf,float *cf,float *nf,int *aq,int *tq,int *gq,int *cq){
+void GetConsensusDetailed(int A,int T,int G,int C,int N,int Aq,int Tq,int Gq,int Cq,int depth,char *consensus,int *coverage,float *af,float *tf,float *gf,float *cf,float *nf,int *aq,int *tq,int *gq,int *cq, int freq){
 	int max, Qual=0;
 	*consensus='N';
 
@@ -127,11 +127,20 @@ void GetConsensusDetailed(int A,int T,int G,int C,int N,int Aq,int Tq,int Gq,int
 	*coverage=A+T+G+C;
 
 	if(*coverage > 0 ){ 
-		if(A>0) {*aq=Aq/A; *aq-=33; *af=A*100/ *coverage;}
-		if(T>0) {*tq=Tq/T; *tq-=33; *tf=T*100/ *coverage;} 
-		if(G>0) {*gq=Gq/G; *gq-=33; *gf=G*100/ *coverage;} 
-		if(C>0) {*cq=Cq/C; *cq-=33; *cf=C*100/ *coverage;}
-		if(N>0) {*nf=N*100/ *coverage;}
+		if(freq==1){
+			if(A>0) {*aq=Aq/A; *aq-=33; *af=A*100/ *coverage;}
+			if(T>0) {*tq=Tq/T; *tq-=33; *tf=T*100/ *coverage;} 
+			if(G>0) {*gq=Gq/G; *gq-=33; *gf=G*100/ *coverage;} 
+			if(C>0) {*cq=Cq/C; *cq-=33; *cf=C*100/ *coverage;}
+			if(N>0) {*nf=N*100/ *coverage;}
+		}
+		else{
+			if(A>0) {*aq=Aq/A; *aq-=33; *af=A;}
+			if(T>0) {*tq=Tq/T; *tq-=33; *tf=T;} 
+			if(G>0) {*gq=Gq/G; *gq-=33; *gf=G;} 
+			if(C>0) {*cq=Cq/C; *cq-=33; *cf=C;}
+			if(N>0) {*nf=N;}
+		}
 	} 
 }
 
