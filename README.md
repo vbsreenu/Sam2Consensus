@@ -12,6 +12,9 @@ gcc sam2consensus.c -o SAM2CONSENSUS -lm
 ### For coverage, variation and shannon entropy, run the program with -e option (extended output)
 *SAM2CONSENSUS -e -i file.sam -o file.fa*
 
+### Print nucleotide frequencies (instead of counts) at each position 
+*SAM2CONSENSUS -e -f -i file.sam -o file.fa*
+
 ## Please check your file before running
 * It generates consensus from a sam file where a single genome used as a reference
 * It work on a SAM file NOT on a BAM file (please convert your bam file to sam)
